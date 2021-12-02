@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,user-scalable=no"
+    />
+    <title>QR Code Generator & Reader</title>
+    <link rel="stylesheet" href="qr_files/qr_css.css" />
+  </head>
+  <body>
+    <blockquote class="blockquote blockquote-reverse">
+      <p>An Offline Browser Utility | QR Code Generator/Reader</p>
+      <footer class="blockquote-footer">
+        Ideal for embedding site links etc. Adapted from
+        <a href="https://webqr.com/" target="blank">here</a>
+      </footer>
+    </blockquote>
+    <div class="card rounded-0">
+      <div class="row card-body">
+        <div class="col-sm-6">
+          <h5>Proceed to Generate QR Code</h5>
+          <div class="row">
+            <div class="col-sm-12">
+              <h4 class="card-title">
+                Input <code>URL</code> or <code>Text</code>
+              </h4>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12">
+              <textarea
+                id="qr_data"
+                autofocus
+                spellcheck
+                class="form-control input-xs rounded-0"
+                name="qr_data"
+              >
+Checkin_system
+</textarea
+              >
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12 text-center">
+              <div id="qrimage"></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-1"></div>
+            <div class="col-sm-4">
+              <button
+                type="button"
+                class="btn btn-outline-secondary btn-sm rounded-0 w-100"
+                onclick="create()"
+              >
+                Generate
+              </button>
+            </div>
+            <div class="col-sm-2"></div>
+            <div class="col-sm-4">
+              <button
+                id="exportImageQRCodeOutputBtn"
+                type="button"
+                class="btn btn-outline-info btn-sm rounded-0 w-100"
+              >
+                Export
+              </button>
+            </div>
+            <div class="col-sm-1"></div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <h5>Proceed to Input QR Code</h5>
+          <div class="row">
+            <div class="col-sm-12">
+              <h4 class="card-title">
+                Output <code>URL</code> or <code>Text</code>
+              </h4>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-12 text-center">
+              <div id="qr-main">
+                <div id="qr-mainbody">
+                  <table class="tsel w-100" border="0">
+                    <tr>
+                      <td colspan="3" align="center">
+                        <div id="qr-result" class="w-100 rounded-0"></div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td valign="top" align="center" width="50%">
+                        <table class="tsel" border="0">
+                          <tr>
+                            <td colspan="2" align="center">
+                              <div id="qr-outdiv"></div>
+                            </td>
+                          </tr>
+                        </table>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+              <canvas id="qr-canvas" width="800" height="600"></canvas>
+              <script type="text/javascript">
+                load();
+              </script>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./qr_files/qr_js.js"></script>
+  </body>
+</html>
