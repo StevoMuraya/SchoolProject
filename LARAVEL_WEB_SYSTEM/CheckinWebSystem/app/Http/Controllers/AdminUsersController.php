@@ -50,6 +50,7 @@ class AdminUsersController extends Controller
         ]);
 
         $new_pass = Str::random(6);
+        // $new_pass = "qwertyman";
 
         $user = User::create([
             'firstname' => $request->firstname,

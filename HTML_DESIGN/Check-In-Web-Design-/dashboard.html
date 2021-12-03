@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="#" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="shortcut icon"
+      href="./images/logo_jpg.jpg"
+      type="image/x-icon"
+    />
+
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/media-queries.css" />
+    <link rel="stylesheet" href="./css/all.css" />
+    <title>Kenyatta Uni Check In System</title>
+  </head>
+  <body>
+    <div class="dash-container">
+      <div class="side-nav" id="side_nav">
+        <div class="top-logo">
+          <h2 class="top-logo-title">
+            KENYATTA UNIVERSITY<br />Checkin System
+          </h2>
+        </div>
+        <div class="line-div"></div>
+        <ul class="side-lists">
+          <li class="side-list">
+            <a href="dashboard.html" class="side-link active">
+              <i class="fas fa-tachometer-alt"></i>
+              Dashboard
+            </a>
+          </li>
+          <li class="side-list">
+            <a href="lecturers.html" class="side-link">
+              <i class="fas fa-chalkboard-teacher"></i>
+              Lecturers
+            </a>
+          </li>
+          <li class="side-list">
+            <a href="" class="side-link">
+              <i class="fas fa-user-friends"></i>
+              Students
+            </a>
+          </li>
+          <li class="side-list">
+            <a href="" class="side-link">
+              <i class="fas fa-school"></i>
+              Units
+            </a>
+          </li>
+          <li class="side-list">
+            <a class="side-link" id="data_dropdown">
+              <i class="fas fa-chart-line"></i>
+              Data &amp; Summaries
+              <i class="fas fa-chevron-right chevy"></i>
+            </a>
+            <ul class="dropdown-lists" id="data_droppeddown">
+              <li class="dropdown-list">
+                <a href="" class="dropdown-link">Link 1</a>
+              </li>
+              <li class="dropdown-list">
+                <a href="" class="dropdown-link">Link 2</a>
+              </li>
+            </ul>
+          </li>
+          <li class="side-list">
+            <a href="" class="side-link">
+              <i class="fas fa-hands-helping"></i>
+              Help &amp; Support
+            </a>
+          </li>
+          <li class="side-list">
+            <a href="" class="side-link logout">
+              <i class="fas fa-hands-helping"></i>
+              Logout
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="nav-overlay" id="nav_overlay"></div>
+      <div class="top-nav" id="top_nav">
+        <div class="hamburger" id="hamburger">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
+        <div class="dash-user-info">
+          <div class="user-text">
+            <p>John Doe</p>
+          </div>
+          <div class="user-pic">
+            <img src="./images/logo_png.png" alt="" />
+          </div>
+        </div>
+      </div>
+      <div class="dash-content" id="dash_content">
+        <div class="breadcrumbs">
+          <a href="dashboard.html" class="bread-link">Dashboard</a>
+        </div>
+        <h1 class="page-title">Dashboard</h1>
+        <div class="dash-row">
+          <div class="top-card">
+            <div class="top-card-text">
+              <h4>Lecturers</h4>
+              <h2>200+</h2>
+            </div>
+            <div class="top-card-image">
+              <i class="fas fa-chalkboard-teacher"></i>
+            </div>
+          </div>
+          <div class="top-card">
+            <div class="top-card-text">
+              <h4>Students</h4>
+              <h2>5000+</h2>
+            </div>
+            <div class="top-card-image">
+              <i class="fas fa-user-friends"></i>
+            </div>
+          </div>
+          <div class="top-card">
+            <div class="top-card-text">
+              <h4>Units</h4>
+              <h2>3000+</h2>
+            </div>
+            <div class="top-card-image">
+              <i class="fas fa-school"></i>
+            </div>
+          </div>
+          <div class="top-card">
+            <div class="top-card-text">
+              <h4>Interactions</h4>
+              <h2>10000+</h2>
+            </div>
+            <div class="top-card-image">
+              <i class="fas fa-people-arrows"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./js/main.js"></script>
+  </body>
+</html>

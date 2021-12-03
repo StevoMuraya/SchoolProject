@@ -58,8 +58,8 @@ class LecturersController extends Controller
             'department' => 'required|max:255',
         ]);
 
-        // $new_pass = Str::random(8);
-        $new_pass = "qwertyman";
+        $new_pass = Str::random(8);
+        // $new_pass = "qwertyman";
 
         $lecturer = Lecturers::create([
             'lec_firstname' => $request->firstname,
