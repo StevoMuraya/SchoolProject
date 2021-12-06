@@ -44,16 +44,31 @@
             @foreach ($class_room->class_held_attendance_relation as $i => $room_attendance)
             <div class="unit-card"
                 onclick="document.location='{{ route('students.show',$room_attendance->attendance_students_relation->student_id) }}'">
-                <div class="unit-info">{{ $room_attendance->attendance_students_relation->student_regNo }} </div>
                 <div class="unit-info">
-
-                    <?php  $student_present[] =  $room_attendance->attendance_students_relation->student_id;?>
-                    {{ $room_attendance->attendance_students_relation->student_firstname }}
-                    {{ $room_attendance->attendance_students_relation->student_lastname }}
+                    <p>
+                        <span>Student Reg No.: <br /></span>
+                        <span>
+                            {{ $room_attendance->attendance_students_relation->student_regNo }}
+                        </span>
+                    </p>
                 </div>
-                <div class="unit-info">{{ $room_attendance->attendance_students_relation->student_regNo }} </div>
                 <div class="unit-info">
-                    {{ Carbon\Carbon::parse($room_attendance->scan_time)->format('g:i a') }}
+                    <p>
+                        <span>Student Name: <br /></span>
+                        <span>
+                            <?php  $student_present[] =  $room_attendance->attendance_students_relation->student_id;?>
+                            {{ $room_attendance->attendance_students_relation->student_firstname }}
+                            {{ $room_attendance->attendance_students_relation->student_lastname }}
+                        </span>
+                    </p>
+                </div>
+                <div class="unit-info">
+                    <p>
+                        <span>Time Scanned: <br /></span>
+                        <span>
+                            {{ Carbon\Carbon::parse($room_attendance->scan_time)->format('g:i a') }}
+                        </span>
+                    </p>
                 </div>
             </div>
             @endforeach
@@ -64,13 +79,24 @@
             @if (!(in_array($class_held_class->unit_students_students_relation->student_id, $student_present)))
             <div class="unit-card"
                 onclick="document.location='{{ route('students.show',$class_held_class->unit_students_students_relation->student_id) }}'">
-                <div class="unit-info">{{ $class_held_class->unit_students_students_relation->student_regNo }} </div>
                 <div class="unit-info">
-                    {{ $class_held_class->unit_students_students_relation->student_firstname }}
-                    {{ $class_held_class->unit_students_students_relation->student_lastname }}
+                    <p>
+                        <span>Student Reg No.: <br /></span>
+                        <span>
+                            {{ $class_held_class->unit_students_students_relation->student_regNo }}
+                        </span>
+                    </p>
                 </div>
-                <div class="unit-info">{{ $room_attendance->attendance_students_relation->student_regNo }} </div>
-                <div class="unit-option" style="background-color: #ca1e1e">
+                <div class="unit-info">
+                    <p>
+                        <span>Student Name: <br /></span>
+                        <span>
+                            {{ $class_held_class->unit_students_students_relation->student_firstname }}
+                            {{ $class_held_class->unit_students_students_relation->student_lastname }}
+                        </span>
+                    </p>
+                </div>
+                <div class="unit-option" style="background-color: #ca1e1e;outline-offset:0px">
                     Absent
                 </div>
             </div>

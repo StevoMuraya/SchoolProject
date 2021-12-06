@@ -3,6 +3,11 @@
     flex-wrap: wrap;
   }
 }
+@media screen and (max-width: 900px) {
+  .rows-headings {
+    display: none;
+  }
+}
 @media screen and (max-width: 750px) {
   .side-nav {
     left: -100%;
@@ -14,6 +19,9 @@
     left: 0%;
   }
   .top-nav {
+    left: 0;
+  }
+  .print-button-holder {
     left: 0;
   }
   .top-nav.move-left {

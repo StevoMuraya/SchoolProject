@@ -21,10 +21,22 @@ for (let i = 0; i < unit_card.length; i++) {
         user_pop_info.classList.add("show");
         user_pop_close.classList.add("show");
 
-        let unit_code_ = this.getElementsByClassName("unit-info")[0].innerHTML;
-        let unit_name_ = this.getElementsByClassName("unit-info")[1].innerHTML;
-        let unit_department_ =
-            this.getElementsByClassName("unit-info")[2].innerHTML;
+        let unit_code_ = this.getElementsByClassName("unit-info")[0];
+        unit_code_ = unit_code_.getElementsByTagName("p")[0];
+        unit_code_ = unit_code_.getElementsByTagName("span")[1].innerHTML;
+        console.log(unit_code_);
+
+        let unit_name_ = this.getElementsByClassName("unit-info")[1];
+        unit_name_ = unit_name_.getElementsByTagName("p")[0];
+        unit_name_ = unit_name_.getElementsByTagName("span")[1].innerHTML;
+        console.log(unit_name_);
+
+        let unit_department_ = this.getElementsByClassName("unit-info")[2];
+        unit_department_ = unit_department_.getElementsByTagName("p")[0];
+        unit_department_ =
+            unit_department_.getElementsByTagName("span")[1].innerHTML;
+        console.log(unit_department_);
+
         let unit_id_ = this.getElementsByClassName("unit-info")[3].innerHTML;
 
         let link = update_link.innerHTML;

@@ -31,6 +31,8 @@ class LecturerRegEmail extends Mailable
      */
     public function build()
     {
-        return $this->view('lecturer-Reg-Email');
+        return $this
+            ->from('admin@checkin.co.ke', 'Checkin System Admin')
+            ->view('lecturer-Reg-Email');
     }
 }

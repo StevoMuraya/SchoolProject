@@ -44,10 +44,23 @@
             @if (count($unit->units_unit_relation))
             @foreach ($unit->units_unit_relation as $i => $unit_lec)
             <div class="unit-card">
-                <div class="unit-info">{{ $unit_lec->unit_lectuer_relation->lec_firstname }} {{
-                    $unit_lec->unit_lectuer_relation->lec_lastname }}</div>
-                <div class="unit-info">{{
-                    $unit_lec->unit_lectuer_relation->lec_code }}</div>
+                <div class="unit-info">
+                    <p>
+                        <span>Lec Name: <br /></span>
+                        <span>
+                            {{ $unit_lec->unit_lectuer_relation->lec_firstname }}
+                            {{ $unit_lec->unit_lectuer_relation->lec_lastname }}
+                        </span>
+                    </p>
+                </div>
+                <div class="unit-info">
+                    <p>
+                        <span>Lec Code: <br /></span>
+                        <span>
+                            {{$unit_lec->unit_lectuer_relation->lec_code }}
+                        </span>
+                    </p>
+                </div>
                 <form action="{{ route('units-assign.destroy',$unit_lec->id) }}" method="post" class="form-action"
                     style="flex: 1">
                     @method('DELETE')

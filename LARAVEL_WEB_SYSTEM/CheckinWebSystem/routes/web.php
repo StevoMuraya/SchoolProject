@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminUsersController;
+use App\Http\Controllers\AttendanceAnalysisController;
 use App\Http\Controllers\ClassAnalysisController;
 use App\Http\Controllers\ClassRoomController;
 use App\Http\Controllers\DashboardController;
@@ -43,7 +44,11 @@ Route::resource('units-analysis', UnitsAnalysisController::class);
 Route::resource('class-analysis', ClassAnalysisController::class);
 Route::resource('classroom-analysis', ClassRoomController::class);
 Route::resource('students', StudentsController::class);
-Route::get('/verify/{token}', [VerifyAdminController::class, 'VerifyEmail'])->name('verify');
+Route::resource('attendance-analysis', AttendanceAnalysisController::class);
+Route::get('attendance-analysis/{class_year}/{class_sem}', [AttendanceAnalysisController::class, 'ClassYearSemAnalysis'])->name('attendance-analysis-pick');
+Route::get('class-attendance-analysis/{class_year}/{class_sem}/{class_id}', [AttendanceAnalysisController::class, 'StduentsClassAnalysis'])->name('class-attendance-analysis');
+
+Route::get('verification/{token}', [VerifyAdminController::class, 'VerifyEmail'])->name('verification');
 
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

@@ -32,14 +32,14 @@
                 </a>
             </li>
             <li class="side-list">
-                <a class="side-link" id="data_dropdown">
+                <a class="side-link @if ($active == 'summaries') active @endif" id="data_dropdown">
                     <i class="fas fa-chart-line"></i>
                     Data &amp; Summaries
                     <i class="fas fa-chevron-right chevy"></i>
                 </a>
                 <ul class="dropdown-lists" id="data_droppeddown">
                     <li class="dropdown-list">
-                        <a href="" class="dropdown-link">Link 1</a>
+                        <a href="{{ route('attendance-analysis.index') }}" class="dropdown-link">Attendance Analysis</a>
                     </li>
                     <li class="dropdown-list">
                         <a href="" class="dropdown-link">Logs</a>

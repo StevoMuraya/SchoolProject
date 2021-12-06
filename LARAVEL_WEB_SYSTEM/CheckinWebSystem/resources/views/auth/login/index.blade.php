@@ -5,17 +5,18 @@
     <div class="login-panel">
         <div class="login-panel-top">
             <div class="login-top-logo">
-                <img src="./images/logo_png.png" alt="" />
+                <img src="{{ asset('./images/logo_png.png') }}" alt="" />
             </div>
         </div>
+
         <div class="login-panel-body">
+            @if (session('status'))
+            <div class="login-session-message">
+                {{ session('status')}}
+            </div>
+            @endif
             <form action="{{ route('login') }}" method="post" class="form-action">
                 @csrf
-                @if (session('status'))
-                <div class="login-session-message">
-                    {{ session('status') }}
-                </div>
-                @endif
                 <p class="form-text-desc">
                     fill in the form to login to the system
                 </p>
@@ -51,11 +52,11 @@
                     <button class="btn btn-login">Login</button>
                 </div>
 
-                @if (Route::has('password.request'))
+                {{-- @if (Route::has('password.request'))
                 <div class="forget-pass">
                     <a href="" class="forget-password-link">Forgot Your Password?</a>
                 </div>
-                @endif
+                @endif --}}
 
                 <p class="form-text-desc bottom">
                     Facing problems while logging in? Contact the system admin through

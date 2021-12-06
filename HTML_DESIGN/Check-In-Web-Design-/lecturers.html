@@ -95,6 +95,9 @@
         </div>
       </div>
       <div class="dash-content" id="dash_content">
+        <div class="print-button-holder">
+          <a href="" class="print-button">Generate Excel</a>
+        </div>
         <div class="dash-split">
           <div class="dash-col content" id="data_col_content">
             <div class="register-popup">
@@ -295,83 +298,110 @@
               </div>
             </div>
           </div>
-          <div class="dash-col user-pop-info" id="user_pop_info">
-            <div class="user-pop-close" id="user_pop_close">
-              <div class="user-pop-close-glow"></div>
+        </div>
+        <div class="dash-col user-pop-info" id="user_pop_info">
+          <div class="user-pop-close" id="user_pop_close">
+            <div class="user-pop-close-glow"></div>
+          </div>
+          <div class="user-pop-fixed">
+            <div class="user-pop-top">
+              <div class="user-pop-image-holder">
+                <img
+                  src="./images/logo_png.png"
+                  alt=""
+                  id="user_pop_image"
+                  class="user-pop-image"
+                />
+              </div>
+              <div class="user-pop-top-info">
+                <p class="user-pop-name" id="user_pop_name">John Doe</p>
+                <p class="user-pop-id">Kenyatta University</p>
+                <p class="user-pop-department" id="user_pop_department">
+                  Computing &amp; Information Technology
+                </p>
+                <p class="user-pop-id" id="user_pop_id">JKB/243/1E/10983</p>
+              </div>
             </div>
-            <div class="user-pop-fixed">
-              <div class="user-pop-top">
-                <div class="user-pop-image-holder">
-                  <img
-                    src="./images/logo_png.png"
-                    alt=""
-                    id="user_pop_image"
-                    class="user-pop-image"
-                  />
-                </div>
-                <div class="user-pop-top-info">
-                  <p class="user-pop-name" id="user_pop_name">John Doe</p>
-                  <p class="user-pop-id">Kenyatta University</p>
-                  <p class="user-pop-department" id="user_pop_department">
-                    Computing &amp; Information Technology
-                  </p>
-                  <p class="user-pop-id" id="user_pop_id">JKB/243/1E/10983</p>
-                </div>
+
+            <div class="grey-line"></div>
+
+            <p class="user-pop-mini-title">Contact Information</p>
+            <div class="user-pop-row">
+              <div class="user-pop-col">
+                <p class="head">Email:</p>
               </div>
-
-              <div class="grey-line"></div>
-
-              <p class="user-pop-mini-title">Contact Information</p>
-              <div class="user-pop-row">
-                <div class="user-pop-col">
-                  <p class="head">Email:</p>
-                </div>
-                <div class="user-pop-col">
-                  <p class="text" id="user_pop_email">somebody@gmail.com</p>
-                </div>
+              <div class="user-pop-col">
+                <p class="text" id="user_pop_email">somebody@gmail.com</p>
               </div>
+            </div>
 
-              <div class="user-pop-row">
-                <div class="user-pop-col">
-                  <p class="head">Phone:</p>
-                </div>
-                <div class="user-pop-col">
-                  <p class="text" id="user_pop_phone">0712345678</p>
-                </div>
+            <div class="user-pop-row">
+              <div class="user-pop-col">
+                <p class="head">Phone:</p>
               </div>
-
-              <div class="grey-line"></div>
-
-              <p class="user-pop-mini-title">Units In-Charge</p>
-
-              <div class="user-pop-units-holder">
-                <div class="unit-pop-holder">
-                  <p>SCO 400</p>
-                </div>
-                <div class="unit-pop-holder">
-                  <p>SCO 400</p>
-                </div>
-                <div class="unit-pop-holder">
-                  <p>SCO 400</p>
-                </div>
-                <div class="unit-pop-holder">
-                  <p>SCO 400</p>
-                </div>
-                <div class="unit-pop-holder">
-                  <p>SCO 400</p>
-                </div>
-                <div class="unit-pop-holder">
-                  <p>SCO 400</p>
-                </div>
+              <div class="user-pop-col">
+                <p class="text" id="user_pop_phone">0712345678</p>
               </div>
-              <div class="btn-holder">
-                <a href="" class="btn edit">Edit</a>
+            </div>
+
+            <div class="grey-line"></div>
+
+            <p class="user-pop-mini-title">Units In-Charge</p>
+
+            <div class="user-pop-units-holder">
+              <div class="unit-pop-holder">
+                <p>SCO 400</p>
               </div>
+              <div class="unit-pop-holder">
+                <p>SCO 400</p>
+              </div>
+              <div class="unit-pop-holder">
+                <p>SCO 400</p>
+              </div>
+              <div class="unit-pop-holder">
+                <p>SCO 400</p>
+              </div>
+              <div class="unit-pop-holder">
+                <p>SCO 400</p>
+              </div>
+              <div class="unit-pop-holder">
+                <p>SCO 400</p>
+              </div>
+            </div>
+            <div class="btn-holder">
+              <a href="" class="btn edit">Edit</a>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+    <script>
+      function exportTableToExcel(tableID, filename = "") {
+        var downloadLink;
+        var dataType = "application/vnd.ms-excel";
+        var tableSelect = document.getElementById(tableID);
+        var tableHTML = tableSelect.outerHTML.replace(/ /g, "%20");
+        // specify file name
+        filename = filename ? filename + ".xls" : "excel_data.xls";
+        //create download link element
+        downloadLink = document.createElement("a");
+        document.body.appendChild(downloadLink);
+        if (navigator.msSaveOrOpenBlob) {
+          var blob = new Blob(["\ufeff", tableHTML], {
+            type: dataType,
+          });
+          navigator.msSaveOrOpenBlob(blob, filename);
+        } else {
+          //create a link to the file
+          downloadLink.href = "data:" + dataType + "," + tableHTML;
+          //setting the file name
+          downloadLink.download = filename;
+          //triggering the function
+          downloadLink.click();
+        }
+      }
+    </script>
     <script src="./js/main.js"></script>
     <script src="./js/person-click.js"></script>
   </body>

@@ -42,9 +42,5 @@ for (let i = 0; i < user_card.length; i++) {
     user_pop_id.innerHTML = user_id;
     user_pop_email.innerHTML = user_email;
     user_pop_phone.innerHTML = user_phone;
-
-    // modal_overlay.style.transform = "scale(1)";
-    // modal_overlay.style.opacity = "1";
-    // modal_pic.style.transform = "scale(1)";
   });
 }

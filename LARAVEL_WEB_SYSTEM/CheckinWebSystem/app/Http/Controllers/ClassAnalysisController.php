@@ -13,6 +13,13 @@ class ClassAnalysisController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->Middleware('auth');
+        $this->Middleware('verified');
+    }
+
     public function index()
     {
         //
@@ -53,7 +60,7 @@ class ClassAnalysisController extends Controller
 
         // dd($class_held->class_held_attendance_relation);
 
-        // dd($class->classes_unit_students_relation());
+        // dd($class->classes_unit_relation);
         return  view('units.class-analysis', [
             'active' => 'units',
             'class' => $class,

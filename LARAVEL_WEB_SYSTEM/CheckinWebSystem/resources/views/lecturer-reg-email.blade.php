@@ -3,7 +3,7 @@
 
 <body>
 
-    <p>Dear {{ $lecturer->firstname }}</p>
+    <p>Dear {{ $lecturer->lec_firstname }}</p>
     <p>
         Your account as lecturer in Kenyatta University Check-In system has been created.
         You can now login using your email. Your generated password is provided below

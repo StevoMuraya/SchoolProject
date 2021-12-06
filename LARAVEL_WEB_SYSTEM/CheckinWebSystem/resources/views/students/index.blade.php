@@ -74,7 +74,7 @@
         <h1 class="page-title">Students</h1>
         <a id="trigger" class="btn-new-pop">New Student</a>
         <div class="search-holder">
-            <input type="text" id="search_input" onkeyup="myFunction()" placeholder=" Search Unit"
+            <input type="text" id="search_input" onkeyup="myFunction()" placeholder=" Search Student"
                 class="search-input" />
             <button class="search-btn" onclick="myFunction()">Search</button>
         </div>
@@ -82,9 +82,6 @@
             @if (count($students))
             @foreach ($students as $student)
             <div class="person-card" onclick="document.location='{{ route('students.show',$student->student_id) }}'">
-                <div class="person-image-holder">
-                    <img src="./images/logo_jpg.jpg" alt="" class="person-image" />
-                </div>
                 <div class="person-info">
                     <p class="person-name">{{ $student->student_firstname }} {{ $student->student_lastname }}</p>
                     <p class="person-email"><a>{{ $student->student_email }}</a></p>

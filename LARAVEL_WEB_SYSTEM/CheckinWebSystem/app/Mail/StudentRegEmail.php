@@ -34,6 +34,8 @@ class StudentRegEmail extends Mailable
      */
     public function build()
     {
-        return $this->view('student-Reg-Email');
+        return $this
+            ->from('admin@checkin.co.ke', 'Checkin System Admin')
+            ->view('student-Reg-Email');
     }
 }

@@ -60,21 +60,38 @@
             @foreach ($unit->unit_classes_relation as $i => $unit_class)
             <div class="unit-card">
                 <div class="unit-info" style="flex: 3;">
-                    {{ Carbon\Carbon::parse($unit_class->created_at)->format('jS F
-                    Y') }}
+                    <p>
+                        <span>Date Created: <br /></span>
+                        {{ Carbon\Carbon::parse($unit_class->created_at)->format('jS F
+                        Y') }}
+                    </p>
                 </div>
                 <div class="unit-info" style="flex: 3;">
-                    {{ $unit_class->class_sem }}{{ date('S',mktime(1,1,1,1,(
-                    (($unit_class->class_sem>=10)+($unit_class->class_sem>=20)+($unit_class->class_sem==0))*10 +
-                    $unit_class->class_sem%10))) }}
-                    Semester
+                    <p>
+                        <span>Semester: <br /></span>
+                        {{ $unit_class->class_sem }}
+                        {{
+                        date('S',mktime(1,1,1,1,(
+                        (($unit_class->class_sem>=10)+($unit_class->class_sem>=20)+($unit_class->class_sem==0))*10 +
+                        $unit_class->class_sem%10)))
+                        }}
+                        Semester
+                    </p>
                 </div>
                 <div class="unit-info" style="flex: 3;">
-                    {{ $unit_class->classes_lecturer_relation->lec_firstname }}
-                    {{ $unit_class->classes_lecturer_relation->lec_lastname }}
+                    <p>
+                        <span>Lecturer name: <br /></span>
+                        {{ $unit_class->classes_lecturer_relation->lec_firstname }}
+                        {{ $unit_class->classes_lecturer_relation->lec_lastname }}
+                    </p>
                 </div>
-                <div class="unit-info" style="flex: 3;">{{ count($unit_class->classes_relation) }} {{
-                    Str::plural('lecture', count($unit_class->classes_relation)) }}</div>
+                <div class="unit-info" style="flex: 3;">
+                    <p>
+                        <span>Total Classes: <br /></span>
+                        {{ count($unit_class->classes_relation) }}
+                        {{ Str::plural('lecture', count($unit_class->classes_relation)) }}
+                    </p>
+                </div>
                 <a href="{{ route('class-analysis.show',$unit_class->class_id) }}" class="unit-option">View</a>
             </div>
             @endforeach

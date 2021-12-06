@@ -16,6 +16,14 @@ class AdminUsersController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->Middleware('auth');
+        $this->Middleware('verified');
+    }
+
+
     public function index()
     {
         $users = User::latest()->get();
@@ -59,6 +67,7 @@ class AdminUsersController extends Controller
             'email_verification_token' => Str::random(32),
             'password' => Hash::make($new_pass)
         ]);
+        $user->markEmailAsVerified();
 
         Mail::to($user->email)->send(new AdminRegEmail($user, $new_pass));
         return back();

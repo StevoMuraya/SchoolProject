@@ -20,8 +20,11 @@ class LecturersController extends Controller
 
     public function __construct()
     {
-        $this->Middleware(['verified']);
+        $this->Middleware('auth');
+        $this->Middleware('verified');
     }
+
+
     public function index()
     {
         $lecturers  =  Lecturers::latest()->get();
@@ -53,7 +56,7 @@ class LecturersController extends Controller
             'firstname' => 'required|max:255',
             'lastname' => 'required|max:255',
             'email' => 'required|max:255|email|unique:lecturers,lec_email,except,lec_id',
-            'phone' => 'required|max:255|unique:lecturers,lec_phone,except,lec_id',
+            'phone' => 'required|max:255|regex:/(254)[0-9]{9}/|unique:lecturers,lec_phone,except,lec_id',
             'lec_code' => 'required|max:255|unique:lecturers,lec_code,except,lec_id',
             'department' => 'required|max:255',
         ]);
@@ -61,20 +64,24 @@ class LecturersController extends Controller
         $new_pass = Str::random(8);
         // $new_pass = "qwertyman";
 
-        $lecturer = Lecturers::create([
-            'lec_firstname' => $request->firstname,
-            'lec_lastname' => $request->lastname,
-            'lec_email' => $request->email,
-            'lec_phone' => $request->phone,
-            'lec_code' => $request->lec_code,
-            'department' => $request->department,
-            'lec_image' => 'default.jpg',
-            'date_reg' => Carbon::now(),
-            'lec_password' => Hash::make($new_pass),
-            'reg_by' => auth()->user()->id
-        ]);
+        // $lecturer = Lecturers::create([
+        //     'lec_firstname' => $request->firstname,
+        //     'lec_lastname' => $request->lastname,
+        //     'lec_email' => $request->email,
+        //     'lec_phone' => $request->phone,
+        //     'lec_code' => $request->lec_code,
+        //     'department' => $request->department,
+        //     'lec_image' => 'default.jpg',
+        //     'date_reg' => Carbon::now(),
+        //     'lec_password' => Hash::make($new_pass),
+        //     'reg_by' => auth()->user()->id
+        // ]);
 
-        Mail::to($lecturer->email,)->send(new LecturerRegEmail($lecturer, $new_pass));
+        // dd($lecturer);
+
+        $lecturer = Lecturers::where('lec_email', '=', $request->email)->get();
+
+        Mail::to($lecturer->lec_email)->send(new LecturerRegEmail($lecturer, $new_pass));
         return back();
     }
 

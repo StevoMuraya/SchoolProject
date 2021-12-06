@@ -17,13 +17,6 @@ class classes extends Model
 
     public function classes_attendance_relation()
     {
-        // return $this->hasManyThrough(
-        //     attendance_list::class,
-        //     classes_held::class,
-        //     'class_id',
-        //     'class_code',
-        //     'class_id'
-        // );
         return $this->hasMany(attendance_list::class, 'class_id');
     }
 

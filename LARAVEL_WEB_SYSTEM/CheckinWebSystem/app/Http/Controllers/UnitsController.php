@@ -13,6 +13,15 @@ class UnitsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+
+    public function __construct()
+    {
+        $this->Middleware('auth');
+        $this->Middleware('verified');
+    }
+
+
     public function index()
     {
         $units  =   Units::latest()->get();

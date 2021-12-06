@@ -18,6 +18,14 @@ class StudentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->Middleware('auth');
+        $this->Middleware('verified');
+    }
+
+
     public function index()
     {
         $students   =   students::latest()->get();
@@ -49,7 +57,7 @@ class StudentsController extends Controller
             'firstname' => 'required|max:255',
             'lastname' => 'required|max:255',
             'email' => 'required|max:255|email|unique:students,student_email,except,student_id',
-            'phone' => 'required|max:255|unique:students,student_phone,except,student_id',
+            'phone' => 'required|max:255|regex:/(254)[0-9]{9}/|unique:students,student_phone,except,student_id',
             'stud_code' => 'required|max:255|unique:students,student_regNo,except,student_id',
         ]);
 

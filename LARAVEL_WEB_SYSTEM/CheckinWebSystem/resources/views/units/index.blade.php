@@ -59,15 +59,30 @@
                 class="search-input" />
             <button class="search-btn" onclick="myFunction()">Search</button>
         </div>
+
         <div class="dash-row">
             @if (count($units))
             @foreach ($units as $unit)
             <div class="unit-card">
                 <div id="update_link" style="display: none">http://127.0.0.1:8000/units/</div>
                 <div id="analysis_link" style="display: none">http://127.0.0.1:8000/units-analysis/</div>
-                <div class="unit-info">{{ $unit->unit_code }}</div>
-                <div class="unit-info">{{ $unit->unit_name }}</div>
-                <div class="unit-info">{{ $unit->unit_department }}</div>
+                <div class="unit-info">
+                    <p>
+                        <span>Unit Code: <br /></span>
+                        <span>{{ $unit->unit_code }}</span>
+                    </p>
+                </div>
+                <div class="unit-info">
+                    <p>
+                        <span>Unit Name: <br /></span>
+                        <span>{{ $unit->unit_name }}</span>
+                </div>
+                <div class="unit-info">
+                    <p>
+                        <span>Unit Department: <br /></span>
+                        <span>{{ $unit->unit_department }}</span>
+                    </p>
+                </div>
                 <a href="{{ route('units-assign.show',$unit->unit_id) }}" class="unit-option">Assign Lecturers</a>
                 <div class="unit-info" style="display: none">{{ $unit->unit_id }}</div>
             </div>

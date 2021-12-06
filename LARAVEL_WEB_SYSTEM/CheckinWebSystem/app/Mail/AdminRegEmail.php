@@ -32,6 +32,8 @@ class AdminRegEmail extends Mailable
      */
     public function build()
     {
-        return $this->view('Admin-Reg-Email');
+        return $this
+            ->from('admin@checkin.co.ke', 'Checkin System Admin')
+            ->view('Admin-Reg-Email');
     }
 }

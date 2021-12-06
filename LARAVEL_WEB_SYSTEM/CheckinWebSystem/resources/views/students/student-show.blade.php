@@ -26,14 +26,32 @@
             </div>
             @if (count($student->students_unit_students_relation))
             @foreach ($student->students_unit_students_relation as $i => $unit_students)
-            <div class="class-card">
+            <div class="class-card" style="min-height:240px;max-height:240px;max-width:140px;min-width:240px;">
                 <div class="unit-text">{{
                     $unit_students->unit_students_class_relation->classes_unit_relation->unit_code }}
                 </div>
-                <div class="unit-text bold">{{
-                    $unit_students->unit_students_class_relation->classes_unit_relation->unit_name }}
+                <div class="unit-text bold">
+                    {{
+                    $unit_students->unit_students_class_relation->classes_unit_relation->unit_name
+                    }}
+                </div>
+                <div class="unit-text" style="margin-top: 0.5em">
+                    {{
+                    $unit_students->unit_students_class_relation->class_year
+                    }}
                 </div>
                 <div class="unit-text">
+                    {{
+                    $unit_students->unit_students_class_relation->class_sem
+                    }}{{
+                    date('S',mktime(1,1,1,1,(
+                    (($unit_students->unit_students_class_relation->class_sem>=10)+($unit_students->unit_students_class_relation->class_sem>=20)+($unit_students->unit_students_class_relation->class_sem==0))*10
+                    +
+                    $unit_students->unit_students_class_relation->class_sem%10)))
+                    }}
+                    Semester
+                </div>
+                <div class="unit-text" style="margin-top: 0.5em">
                     Out of {{
                     count($unit_students->unit_students_class_relation->classes_relation) }}
                     {{ Str::plural('class', count($unit_students->unit_students_class_relation->classes_relation)) }}
