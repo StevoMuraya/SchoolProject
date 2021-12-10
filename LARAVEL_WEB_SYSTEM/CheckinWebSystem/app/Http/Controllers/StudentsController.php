@@ -62,6 +62,7 @@ class StudentsController extends Controller
         ]);
 
         $new_pass = Str::random(8);
+        $auth_number = mt_rand(100000, 999999);
 
         $students = students::create([
             'student_firstname' => $request->firstname,
@@ -69,6 +70,7 @@ class StudentsController extends Controller
             'student_email' => $request->email,
             'student_phone' => $request->phone,
             'student_regNo' => $request->stud_code,
+            'email_validation' => $auth_number,
             'student_password' => Hash::make($new_pass),
             'student_profile' => 'default.jpg',
         ]);
@@ -76,7 +78,7 @@ class StudentsController extends Controller
         // $students = students::where('student_email', '=',)->get();
 
 
-        Mail::to($request->email)->send(new StudentRegEmail($students, $new_pass));
+        Mail::to($students->student_email)->send(new StudentRegEmail($students, $new_pass));
         return back();
     }
 
@@ -90,9 +92,9 @@ class StudentsController extends Controller
     {
         $student  = students::find($id);
 
-        $unit_stud  = unit_students::find('4');
+        // $unit_stud  = unit_students::find('4');
 
-        $class_held  = classes_held::find('6');
+        // $class_held  = classes_held::find('6');
 
 
         // dd($class_held->class_held_attendance_relation);

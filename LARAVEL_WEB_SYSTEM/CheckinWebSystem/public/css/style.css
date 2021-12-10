@@ -45,6 +45,9 @@ ul {
     align-items: center;
     max-width: 700px;
 }
+.login-panel.qr_show {
+    min-width: 53vh;
+}
 .login-panel-top {
     width: 100%;
     display: flex;
@@ -61,6 +64,10 @@ ul {
     display: flex;
     justify-content: center;
     margin-top: -1em;
+}
+.login-panel-body.qr_show {
+    flex-direction: column;
+    align-items: center;
 }
 .form-action {
     width: 100%;
@@ -130,6 +137,9 @@ ul {
     display: flex;
     margin: 1em 0;
     justify-content: center;
+}
+.login-btn-holder.qr_show {
+    margin: 2em 0;
 }
 .btn {
     border: none;
@@ -1097,4 +1107,22 @@ td.users {
 
 .info-list-table tr:nth-child(even) {
     background-color: #ddd;
+}
+
+.qr_code_lec_disp {
+    width: 50vh;
+    height: 50vh;
+}
+#qr_data {
+    display: none;
+}
+#qrimage {
+    width: 100%;
+    min-height: 50vh;
+    /* padding-bottom: 4em; */
+}
+#qrimage img {
+    width: 100%;
+    min-width: 100%;
+    min-height: 50vh;
 }

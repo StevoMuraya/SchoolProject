@@ -17,7 +17,7 @@ user_pop_close.addEventListener("click", function () {
 });
 
 for (let i = 0; i < unit_card.length; i++) {
-    unit_card[i].addEventListener("click", function () {
+    unit_card[i].addEventListener("dblclick", function () {
         user_pop_info.classList.add("show");
         user_pop_close.classList.add("show");
 

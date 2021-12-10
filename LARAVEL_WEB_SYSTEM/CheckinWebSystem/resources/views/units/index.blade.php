@@ -64,8 +64,8 @@
             @if (count($units))
             @foreach ($units as $unit)
             <div class="unit-card">
-                <div id="update_link" style="display: none">http://127.0.0.1:8000/units/</div>
-                <div id="analysis_link" style="display: none">http://127.0.0.1:8000/units-analysis/</div>
+                <div id="update_link" style="display: none">/units/</div>
+                <div id="analysis_link" style="display: none">/units-analysis/</div>
                 <div class="unit-info">
                     <p>
                         <span>Unit Code: <br /></span>

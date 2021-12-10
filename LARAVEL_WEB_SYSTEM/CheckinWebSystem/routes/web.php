@@ -49,6 +49,8 @@ Route::get('attendance-analysis/{class_year}/{class_sem}', [AttendanceAnalysisCo
 Route::get('class-attendance-analysis/{class_year}/{class_sem}/{class_id}', [AttendanceAnalysisController::class, 'StduentsClassAnalysis'])->name('class-attendance-analysis');
 
 Route::get('verification/{token}', [VerifyAdminController::class, 'VerifyEmail'])->name('verification');
+Route::get('display/{class_id}/{lec_id}', [LecturersController::class, 'lec_password_qr'])->name('display');
+Route::post('display/code/{class_id}/{lec_id}', [LecturersController::class, 'display_qr_code'])->name('display.code');
 
 
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

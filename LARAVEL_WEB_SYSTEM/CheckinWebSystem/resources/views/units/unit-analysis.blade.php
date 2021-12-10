@@ -69,8 +69,7 @@
                 <div class="unit-info" style="flex: 3;">
                     <p>
                         <span>Semester: <br /></span>
-                        {{ $unit_class->class_sem }}
-                        {{
+                        {{ $unit_class->class_sem }}{{
                         date('S',mktime(1,1,1,1,(
                         (($unit_class->class_sem>=10)+($unit_class->class_sem>=20)+($unit_class->class_sem==0))*10 +
                         $unit_class->class_sem%10)))

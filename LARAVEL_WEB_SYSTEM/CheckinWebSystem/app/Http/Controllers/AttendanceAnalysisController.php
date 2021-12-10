@@ -14,6 +14,12 @@ class AttendanceAnalysisController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function __construct()
+    {
+        $this->Middleware('auth');
+        $this->Middleware('verified');
+    }
     public function index()
     {
         $class_years = classes::select('class_year')->distinct()->get();
